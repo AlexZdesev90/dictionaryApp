@@ -1,10 +1,11 @@
 import "./App.css";
 import AddEnglishWord from "./AddEnglishWord";
 import React from "react";
+import AddList from "./AddList";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       wordEn: "",
       wordRu: "",
@@ -21,8 +22,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    let x = JSON.parse(localStorage.getItem("arr"));
-    this.setState({ array: [x] });
+    this.setState({ array: (JSON.parse(localStorage.getItem("arr")) || []) });
+    
   }
 
   updateState = (arr) => {
@@ -39,8 +40,8 @@ class App extends React.Component {
           updateArray={this.updateState}
           wordE={this.state.wordEn}
           wordR={this.state.wordRu}
-          array={this.state.array}
         />
+        <AddList array={this.state.array}/>
       </div>
     );
   }
