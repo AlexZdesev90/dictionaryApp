@@ -7,10 +7,14 @@ const AddList = (props) => {
         <div>
             {array.map((element, idx) => {
                
-                return <Word key={idx} words={element} idx={idx} />
+                return <Word key={idx}
+                    words={element}
+                    idx={idx}
+                    
+                    />
             })}
             
-             
+            
             
             </div>
     )
